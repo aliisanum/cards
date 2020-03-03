@@ -50,5 +50,24 @@ if($_SESSION['username'] == 'username') {
  mysqli_close($conn);
 } else {
  	print("No access.");
+ 		while($row = mysqli_fetch_assoc($result)) {
+ 			echo $row["id"] . " ";
+ 			echo $row["name"] . " ";
+ 			echo $row["street_address"] . " ";
+ 			echo $row["zip"] . " ";
+ 			echo $row["city"] . " ";
+ 			echo $row["state"] . " ";
+ 			echo $row["country"] . " ";
+ 			echo "<a href=\"delete.php?id=" . $row["id"] . "\">DELETE</a>";
+ 			print("<br>");
+ 		}
+ 	} else {
+ 		echo "0 results";
+ 	}
+ 	print("</html>");
+ 	mysqli_close($conn);
+} else {
+ 		print("No access.");
 }
 ?>
+
